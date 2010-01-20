@@ -12,8 +12,12 @@ $.addthis();
 -or-
 $.addthis('username');
 where username is your AddThis username. Useful for tracking statistics.
+-or-
+$.addthis('username', '#element');
+where username is your AddThis username and '#element' is the element you wish to apply the addthis button to.
 
 ======
 Version History:
 ======
+0.2 Added element option
 0.1 Initial version, uses the basic options that allow you to put this on your site
