@@ -13,11 +13,19 @@ $.addthis();
 $.addthis('username');
 where username is your AddThis username. Useful for tracking statistics.
 -or-
-$.addthis('username', '#element');
-where username is your AddThis username and '#element' is the element you wish to apply the addthis button to.
+$.addthis('username', opts);
+Where opts are options, the following options are supported
+  elem: the element to apply the "Add This" button to (default: a.addthis)
+  btn_size: the size of the button to be displayed (large, small)
+  url: the url to be shared (default: '[URL]')
+  url_title: title of the url to be shared (default: '[TITLE]')
+  
+  example:
+  $.addthis('john.doe', { elem: '#at_button', btn_size: 'small' });
 
 ======
 Version History:
 ======
+0.3 Removed element option and added options parameter
 0.2 Added element option
 0.1 Initial version, uses the basic options that allow you to put this on your site
