@@ -42,7 +42,7 @@
 
 				// include the script
 				$.getScript(addthisurl, function(){
-					$(options.elem).append(btn_image).attr('href', 'http://www.addthis.com/bookmark.php?v=250').mouseover(
+					$(opts.elem).append(btn_image).attr('href', 'http://www.addthis.com/bookmark.php?v=250').mouseover(
 						function(){
 							return addthis_open(this, '', opts.url, opts.url_title);
 						}).mouseout(
