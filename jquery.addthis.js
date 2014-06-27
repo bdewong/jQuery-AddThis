@@ -3,6 +3,7 @@
  * (c)2009 Brent Wong
  * 
  * Modified by Nick Shepherd
+ * Modified by Massimiliano Arione
  * 
  * Usage:
  *  $.addthis();
@@ -15,6 +16,7 @@
  *  btn_size: the size of the button to be displayed (large, small)
  *  url: the url to be shared (default: '[URL]')
  *  url_title: title of the url to be shared (default: '[TITLE]')
+ *  lang: the language of button (default: 'en' for english)
 */
 (function($){
 	$.addthis = function(code, options){
@@ -26,7 +28,8 @@
 					elem: 'a.addthis',
 					btn_size: 'large',
 					url: '[URL]',
-					url_title: '[TITLE]'
+					url_title: '[TITLE]',
+					lang: 'en'
 				}
 
 				var opts = $.extend(defaults, options);
@@ -36,13 +39,13 @@
 				var btn_image  = '';
 
 				if(opts.btn_size == 'large') 
-					btn_image = '<img src="http://s7.addthis.com/static/btn/lg-share-en.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/>';
+					btn_image = '<img src="http://s7.addthis.com/static/btn/lg-share-' + opts.lang + '.gif" width="125" height="16" alt="Bookmark and Share" style="border:0"/>';
 				else
-					btn_image = '<img src="http://s7.addthis.com/static/btn/sm-share-en.gif" width="83" height="16" alt="Bookmark and Share" style="border:0"/>';
+					btn_image = '<img src="http://s7.addthis.com/static/btn/sm-share-' + opts.lang + '.gif" width="83" height="16" alt="Bookmark and Share" style="border:0"/>';
 
 				// include the script
 				$.getScript(addthisurl, function(){
-					$(options.elem).append(btn_image).attr('href', 'http://www.addthis.com/bookmark.php?v=250').mouseover(
+					$(opts.elem).append(btn_image).attr('href', 'http://www.addthis.com/bookmark.php?v=250').mouseover(
 						function(){
 							return addthis_open(this, '', opts.url, opts.url_title);
 						}).mouseout(
